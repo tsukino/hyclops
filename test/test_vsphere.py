@@ -32,7 +32,8 @@ class TestVSphereConnector(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('hyclops.connector.vsphere')
-        logger.addHandler(logging.NullHandler())
+        #logger.addHandler(logging.NullHandler())
+        logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         self.patchers = [
             patch('hyclops.libcloud_driver.vsphere.VSphereNodeDriver', new=MockVSphereNodeDriver),
             patch('hyclops.connector.base.ZabbixAPI', new=MockZabbixAPI),

@@ -208,6 +208,8 @@ class VSphereConnector(BaseConnector):
             self.zabbix_sender(hostname, "instance.stuck.question", node.extra["stuck_question"])
             self.zabbix_sender(hostname, "instance.stuck.choices", node.extra["stuck_choices"])
             self.zabbix_sender(hostname, "instance.platform", node.extra["platform"])
+            self.zabbix_sender(hostname, "instance.disk_committed", node.extra["disk_committed"])
+            self.zabbix_sender(hostname, "instance.disk_uncommitted", node.extra["disk_uncommitted"])
 
         # move to "Not exist hosts" group old zabbix hosts
         not_existed_groupid = self.zabbix_api.hostgroup.get({"filter": {"name": "Not exist hosts"}})[0]
