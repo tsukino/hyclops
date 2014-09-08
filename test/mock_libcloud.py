@@ -31,8 +31,8 @@ class MockNode(object):
         self.extra = extra or {}
 
     def __repr__(self):
-        return "MockNode<id=%s, name=%s, state=%s, public_ips=%s, private_ips=%s, driver=%s, size=%s, image=%s, extra=%s>" % (
-               self.id, self.name, self.state, self.public_ips, self.private_ips, self.driver, self.size, self.image, self.extra)
+        # return "%s" % (self.extra["disk_committed"])
+        return "MockNode<id=%s, name=%s, state=%s, public_ips=%s, private_ips=%s, driver=%s, size=%s, image=%s, extra=%s>" % (self.id, self.name, self.state, self.public_ips, self.private_ips, self.driver, self.size, self.image, self.extra)
 
 
 class MockNodeDriver(object):

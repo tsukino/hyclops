@@ -30,7 +30,8 @@ class TestIPMIConnector(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('hyclops.connector.ipmi')
-        logger.addHandler(logging.NullHandler())
+        # logger.addHandler(logging.NullHandler())
+        logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         self.patchers = [
             patch('hyclops.connector.base.ZabbixAPI', new=MockZabbixAPI),
             patch('subprocess.check_output')

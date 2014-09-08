@@ -56,8 +56,8 @@ class VSphereTests(unittest.TestCase):
                 "powerState": "poweredOn",
                 "question": Mock(spec=['id', 'choice', 'text'],
                                  **{'id': 1,
-                                 'choice.choiceInfo': [Mock(**{'key': 1, 'label': 'choice1', 'summary': 'choice1'})],
-                                 'text': 'question message'})}),
+                                    'choice.choiceInfo': [Mock(**{'key': 1, 'label': 'choice1', 'summary': 'choice1'})],
+                                    'text': 'question message'})}),
             "config": Mock(**{
                 "uuid": "vsphere_uuid",
                 "extraConfig": [MagicMock()]}),
@@ -123,8 +123,8 @@ class VSphereTests(unittest.TestCase):
                 "powerState": "poweredOn",
                 "question": Mock(spec=['id', 'choice', 'text'],
                                  **{'id': 1,
-                                 'choice.choiceInfo': [Mock(**{'key': 1, 'label': 'choice1', 'summary': 'choice1'})],
-                                 'text': 'question message'})}),
+                                    'choice.choiceInfo': [Mock(**{'key': 1, 'label': 'choice1', 'summary': 'choice1'})],
+                                    'text': 'question message'})}),
             "config": Mock(**{
                 "uuid": "vsphere_uuid",
                 "extraConfig": [MagicMock()]}),
@@ -144,8 +144,8 @@ class VSphereTests(unittest.TestCase):
                 MockDatastore({
                     "name": "datastore name",
                     "summary": Mock(**{"freeSpace": 400 * 1024 ** 3,
-                                    "capacity": 800 * 1024 ** 3,
-                                    "type": "nfs"})
+                                       "capacity": 800 * 1024 ** 3,
+                                       "type": "nfs"})
                 })
             ],
             "summary": Mock(**{
@@ -182,6 +182,8 @@ class VSphereTests(unittest.TestCase):
                 'stuck_question': "question message",
                 'stuck_choices': [{'label': 'choice1', 'key': 1, 'summary': 'choice1'}],
                 'platform': "CentOS 4/5/6 (64bit)",
+                'disk_committed': 200 * 1024 ** 2,
+                'disk_uncommitted': 300 * 1024 ** 2,
             }
         )
 

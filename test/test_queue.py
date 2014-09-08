@@ -29,7 +29,8 @@ class TestMessageQueue(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('queue')
-        logger.addHandler(logging.NullHandler())
+        # logger.addHandler(logging.NullHandler())
+        logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         self.patchers = [
             patch('hyclops.connector.ec2.EC2Connector.__new__'),
             patch('hyclops.connector.vsphere.VSphereConnector.__new__'),

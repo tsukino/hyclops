@@ -94,8 +94,8 @@ class VSphereNodeDriver(NodeDriver):
                 'stuck_question': question,
                 'stuck_choices': choices,
                 'platform': vm.summary.config.guestFullName,
-                'disk_committed':vm.summary.storage.committed,
-                'disk_uncommitted':vm.summary.storage.uncommitted,
+                'disk_committed': vm.summary.storage.committed,
+                'disk_uncommitted': vm.summary.storage.uncommitted,
             }
         )
         return node

@@ -31,7 +31,8 @@ class TestEC2Connector(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('hyclops.connector.ec2')
-        logger.addHandler(logging.NullHandler())
+        # logger.addHandler(logging.NullHandler())
+        logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         libcloud_drivers = [
             'libcloud.compute.drivers.ec2.EC2EUNodeDriver',
             'libcloud.compute.drivers.ec2.EC2USWestNodeDriver',

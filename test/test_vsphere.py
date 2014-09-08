@@ -32,7 +32,7 @@ class TestVSphereConnector(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('hyclops.connector.vsphere')
-        #logger.addHandler(logging.NullHandler())
+        # logger.addHandler(logging.NullHandler())
         logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         self.patchers = [
             patch('hyclops.libcloud_driver.vsphere.VSphereNodeDriver', new=MockVSphereNodeDriver),
@@ -76,6 +76,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "CentOS 4/5/6 (64bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -101,6 +103,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Microsoft Windows Server 2008 R2 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -126,6 +130,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Microsoft Windows Server 2008 R2 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -151,6 +157,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Microsoft Windows Server 2008 R2 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -176,6 +184,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Red Hat Enterprise Linux 6 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -201,6 +211,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Red Hat Enterprise Linux 6 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -226,6 +238,8 @@ class TestVSphereConnector(unittest.TestCase):
                 "stuck_question": None,
                 "stuck_choices": None,
                 "platform": "Red Hat Enterprise Linux 6 (64-bit)",
+                "disk_committed": 200 * 1024 ** 2,
+                "disk_uncommitted": 300 * 1024 ** 2,
             }
         })
         MockVSphereNodeDriver.add_mock_node(node)
@@ -492,6 +506,10 @@ class TestVSphereConnector(unittest.TestCase):
         result = self.connector.run_command(**correct_messages[1])
         self.assertFalse(result["result"])
         self.assertIsInstance(result["message"], str)
+
+    # def test_get_disk_committed(self):
+        # result = self.connector.get_libcloud_node(hostname="vsphere_uuid", conn=self.driver)
+        # print type(result)
 
     def test_get_libcloud_node(self):
         result = self.connector.get_libcloud_node(hostname="vsphere_uuid", conn=self.driver)

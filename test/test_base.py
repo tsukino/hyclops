@@ -31,7 +31,8 @@ class TestBaseConnector(unittest.TestCase):
 
     def setUp(self):
         logger = logging.getLogger('hyclops.connector.base')
-        logger.addHandler(logging.NullHandler())
+        # logger.addHandler(logging.NullHandler())
+        logger.addHandler(logging.FileHandler("/tmp/hyclops_test.log"))
         self.patcher = patch('hyclops.connector.base.ZabbixAPI', new=MockZabbixAPI)
         self.patcher.start()
         config_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "test.conf")
